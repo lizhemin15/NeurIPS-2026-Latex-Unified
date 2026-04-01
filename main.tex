@@ -1,0 +1,116 @@
+% 主文件 / Manuscript（论文写在这里）。排版说明 PDF：neurips2026_formatting_instructions.tex。勿改 neurips_2026.sty。
+\documentclass{article}
+
+% 中：在此选赛道及 final / preprint / nonatbib；选项含义与注释全文见 neurips2026_formatting_instructions.tex 同位置。
+% EN: Choose track and \texttt{final}/\texttt{preprint}/\texttt{nonatbib} here; see the formatting-instructions source for full bilingual notes.
+\usepackage{neurips_2026}
+
+% ---------- 本模板固定宏包（与说明 PDF 一致；勿改顺序以免与 lineno / natbib 冲突）----------
+% EN: Fixed template packages (same as the official guide); keep order to avoid clashes with lineno/natbib.
+% 中：勿改 .sty 内几何与正文字号；纸张 US Letter；PDF 宜 Type 1 或嵌入 TrueType。
+% EN: Do not change geometry/body fonts in \texttt{.sty}; US Letter; PDF fonts should be Type~1 or embedded TrueType.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{booktabs}
+% 中：图宽用 \linewidth 的分数，避免超版心。
+% EN: Figure widths as a fraction of \verb|\linewidth|.
+\usepackage{graphicx}
+% 中：用 equation / align，勿裸 $$...$$；勿在正文引用行号。
+% EN: Use \texttt{equation}/\texttt{align}, not raw \$\$; do not cite line numbers in text.
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{nicefrac}
+\usepackage{microtype}
+\usepackage{xcolor}
+
+% ========== 【作者加包区】AUTHOR PACKAGE ZONE — 仅在此处写额外 \usepackage ==========
+% 中：只在本区域内增加你自己的宏包；勿在区域外零散插入，便于检查与排查冲突。
+% EN: Put \emph{only} your extra \verb|\usepackage{...}| lines inside this zone (not scattered elsewhere).
+%
+% 中：官方禁止 / 易 desk reject —— 勿加载会改版面、纸张或正文主字号/行距体系的宏包或等价手段，例如：
+% EN: Forbidden / high desk-reject risk --- do not load packages (or equivalent tricks) that change official page layout, paper size, or main text font/leading, e.g.:
+%   • geometry, changepage, fullpage（官方 .sty 会警告 fullpage 并强制覆盖）
+%   • savetrees、滥用 anyfontsize、eso-pic 等大幅改版心或版面的用法
+%   • 在导言用 \usepackage{times} 等与 .sty 已设罗马字体冲突的重复设定
+%   • 直接修改 neurips_2026.sty，或在导言区 \renewcommand 覆盖其中的版式参数
+%
+% 中：官方说明中不推荐 / 易出 PDF 字体问题 —— 慎用：
+% EN: Discouraged in official notes / common PDF font problems --- avoid:
+%   • bbold 等易引入位图字体的包；xfig 等带「pattern fill」的位图符号
+%   • 表格竖线（与 booktabs 及会场惯例不符；说明 PDF 强调勿用竖线表格）
+%
+% 中：正文命令 —— 勿用裸 TeX $$...$$ 做行间公式；勿用手动 \special 摆图；勿在正文用 \fontsize/\selectfont、\linespread 等绕过官方行距与字号。
+% EN: In the body --- no raw \$\$ \$\$ for display math; avoid hand-tuned \verb|\special| for figures; do not use \verb|\fontsize|/\verb|\linespread| etc.\ to bypass official font/leading.
+%
+% 中：与 natbib 冲突时，应用 \usepackage[nonatbib]{neurips_2026} 并在其前 \PassOptionsToPackage；新增包若需 hyperref 选项，可写在下面 \hypersetup{...} 而非重复 \usepackage{hyperref}。
+% EN: If natbib clashes, use \texttt{[nonatbib]} and \verb|\PassOptionsToPackage| before \texttt{neurips\_2026}; use \verb|\hypersetup| for link options, do not load \texttt{hyperref} twice.
+%
+% 中：示例（使用前自查是否与 lineno / natbib / hyperref 冲突）： cleveref, algorithm2e, siunitx, tikz …
+% EN: Examples (check clashes with lineno/natbib/hyperref): cleveref, algorithm2e, siunitx, tikz, \ldots
+%
+% \usepackage{mypackage}   % <-- 仅在此行附近增加你的 \usepackage
+
+% ========== 【作者加包区】结束 ==========
+% 中：下一行 hyperref 须保持为导言区最后一个 \usepackage；之后如需改链接颜色等，用 \hypersetup{...}，禁止再次 \usepackage{hyperref}。
+% EN: The next line must be the last \verb|\usepackage| in the preamble; tune links with \verb|\hypersetup{...}|, never load \texttt{hyperref} twice.
+\usepackage{hyperref}
+% \hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}  % 可选 / optional link styling
+
+% 中：终稿 camera-ready 时作者排版见说明 PDF。截稿前在 OpenReview 登记全部作者；截稿后通常不可增删作者，仅可调顺序（以官网为准）。
+% EN: Camera-ready author layout is in the official guide. Register all authors before the deadline; after the deadline you usually cannot add/remove authors, only reorder.
+\title{Paper Title}
+
+% 中：匿名审稿下 PDF 中作者区会被占位；勿在正文泄露身份。脚注可用于非资助类作者信息（见说明 PDF）。
+% EN: Author block is anonymized in the review PDF; do not deanonymize in the text. Footnotes: non-funding author info only (see guide).
+\author{%
+  Author One \\
+  Affiliation \\
+  Address \\
+  \texttt{email} \\
+  \And
+  Author Two \\
+  Affiliation \\
+  Address \\
+  \texttt{email} \\
+}
+
+\begin{document}
+
+% 中：单 PDF 常见顺序：正文 → 参考文献 → 附录 → Checklist。正文 ≤9 页含图、表；参考文献、终稿致谢、附录、Checklist 不计入。PDF / 补充 ZIP 大小上限以当年官网为准。
+% EN: Typical PDF order: body $\to$ references $\to$ appendix $\to$ checklist. Nine content pages incl.\ figures/tables; references, acknowledgments (final), appendix, and checklist are extra. Size caps per official site.
+\maketitle
+
+\begin{abstract}
+% 中：摘要只能一段。
+% EN: The abstract must be a single paragraph.
+  One paragraph only.
+\end{abstract}
+
+\section{Introduction}
+% 中：双盲：引用自己已发表工作用第三人称；未公开稿匿名引用并在补充材料附匿名副本。外链与补充须匿名可访问。
+% EN: Double-blind: third-person self-citation; anonymous cites need anonymized supplement; links/supplements must be anonymous.
+% 中：若 LLM/agent 是方法中重要、原创或非常规部分，须在实验设置（或等价节）说明；仅拼写/语法/简单写码辅助可不写。不得将 LLM 列为作者；禁止操纵审稿。
+% EN: Disclose LLM/agent in methods if important, original, or non-standard; basic editing need not be reported. LLMs are not authors; no review manipulation.
+% 中：遵守伦理与诚信、双投政策；审稿期内勿再投其它存档会议/期刊。预印本允许，但公开稿勿写 under review at NeurIPS，勿过度宣传在审稿。
+% EN: Ethics, integrity, no dual submission while under review. Preprints OK; do not label as under review at NeurIPS; avoid aggressive promotion.
+% 中：OpenReview profile 须在截止前完善（论文、单位、邮箱），供利益冲突判定。
+% EN: Complete OpenReview profiles (publications, affiliations, emails) for COI before the deadline.
+Example citation \citep{hasselmo}.
+
+\section*{References}
+% 中：引用格式全文一致；本示例 natbib + BibTeX（pdflatex → bibtex → pdflatex×2）。与 natbib 冲突时可用 \usepackage[nonatbib]{neurips_2026}，并在加载样式前 \PassOptionsToPackage{...}{natbib}（若仍用 natbib）。
+% EN: One consistent style; this example uses natbib + BibTeX. If natbib clashes, use \texttt{nonatbib} and \verb|\PassOptionsToPackage| before loading \texttt{neurips\_2026} when needed.
+{\small
+\bibliographystyle{plainnat}
+\bibliography{references}
+}
+
+% 中：强烈鼓励匿名补充 ZIP 中附可运行代码供审稿；录用后按政策去匿名链接。审稿人须对材料保密。
+% EN: Strongly encouraged to attach reviewable anonymized code; de-anonymize after acceptance as required. Reviewers must keep materials confidential.
+\newpage
+% 中：Checklist 为投稿强制部分，缺则可能 desk reject；提交前删除 checklist.tex 中 BEGIN/END INSTRUCTIONS 英文说明段，保留标题与题目。
+% EN: Checklist is mandatory (desk reject if missing). Before submission, delete the instruction block in \texttt{checklist.tex}, keep the heading and items.
+\input{checklist.tex}
+
+\end{document}
