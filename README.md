@@ -2,7 +2,7 @@
 
 Easier-to-use NeurIPS 2026 LaTeX layout — hope your paper gets **ACCEPT** ✨
 
-**Repository:** [https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified](https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified) · [Issues](https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified/issues)
+**Repository:** [https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified](https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified) · [Issues](https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified/issues) · **Overleaf (read-only):** [https://cn.overleaf.com/read/trbjkxgndgzt#105a49](https://cn.overleaf.com/read/trbjkxgndgzt#105a49)
 
 ```bash
 git clone https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified.git
@@ -30,7 +30,7 @@ A **NeurIPS 2026–compatible** LaTeX layout based on the official `neurips_2026
 | **`neurips2026_formatting_instructions.tex`** | Long formatting guide (compile for the official-style instruction PDF). |
 | **`neurips_2026.sty`** | Official class/style implementation — **do not edit** for submission. |
 
-Compile `main.tex` with `pdflatex` + `bibtex` + `pdflatex` ×2 (or `latexmk`). CI builds `main.tex` and the formatting guide on push/PR.
+Compile `main.tex` with `pdflatex` + `bibtex` + `pdflatex` ×2 (or `latexmk`). CI builds `main.tex` and the formatting guide on push/PR. An online **read-only** copy lives on [Overleaf (CN)](https://cn.overleaf.com/read/trbjkxgndgzt#105a49)—use **Menu → Copy project** to edit your own fork.
 
 ### Improvements over the stock official ZIP (this repo)
 
@@ -55,7 +55,7 @@ Repository structure, comments, and several fixes were iterated with **[Cursor](
 
 ## 中文
 
-**仓库：** [https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified](https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified) · [提 Issue](https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified/issues)
+**仓库：** [https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified](https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified) · [提 Issue](https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified/issues) · **Overleaf（只读）：** [https://cn.overleaf.com/read/trbjkxgndgzt#105a49](https://cn.overleaf.com/read/trbjkxgndgzt#105a49)
 
 ### 这是什么
 
@@ -82,6 +82,8 @@ Repository structure, comments, and several fixes were iterated with **[Cursor](
 - **`.sty` 体验：** Workshop 轨道若未设置 `\workshoptitle` 会给出警告。
 - **GitHub Actions：** push/PR 上编译冒烟；推送 `v*` 标签会发布 Release，附带两份 PDF 与 `git archive` 源码压缩包。
 
+在线 **只读** 版本见 [Overleaf（中文站）](https://cn.overleaf.com/read/trbjkxgndgzt#105a49)；要改稿请在 Overleaf 里 **Menu → Copy project** 复制到自己的项目。
+
 ### 关于 Cursor
 
 本仓库的目录组织、注释体系与部分修补是在 **[Cursor](https://cursor.com)** 辅助下迭代完成的。若与 NeurIPS 官网或官方 ZIP **有任何冲突，以官方为准**。
@@ -96,7 +98,7 @@ Repository structure, comments, and several fixes were iterated with **[Cursor](
 
 ## 日本語
 
-**リポジトリ:** [https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified](https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified) · [Issues](https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified/issues)
+**リポジトリ:** [https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified](https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified) · [Issues](https://github.com/lizhemin15/NeurIPS-2026-Latex-Unified/issues) · **Overleaf（閲覧のみ）:** [https://cn.overleaf.com/read/trbjkxgndgzt#105a49](https://cn.overleaf.com/read/trbjkxgndgzt#105a49)
 
 このリポジトリは NeurIPS 2026 公式の `neurips_2026.sty` に準拠した LaTeX テンプレートを、**執筆用 `main.tex` と説明用ソースを分離**し、**日中英の注意コメント**や**追加パッケージ用ゾーン**を設けるなど、作者向けに整理したものです。**最終的な規則・締切は必ず [neurips.cc](https://neurips.cc) で確認してください。** 構成の一部は [Cursor](https://cursor.com) を用いた編集で整備されています。不具合やリンク切れは上記 Issues からお知らせください。
 
